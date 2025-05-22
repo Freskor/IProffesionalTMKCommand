@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     openExistingButton.addEventListener('click', async () => {
+        button onclick="getMicrophone()"
         voiceStatus.textContent = 'Загрузка списка файлов...';
         try {
             const response = await fetch(`${BACKEND_URL}/api/files`); // Предполагаем, что есть такой эндпоинт
@@ -82,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     generateTableButton.addEventListener('click', async () => {
         const rows = parseInt(rowsInput.value);
         const cols = parseInt(colsInput.value);
-
+        
         if (isNaN(rows) || isNaN(cols) || rows < 1 || cols < 1) {
             alert('Пожалуйста, введите корректные размеры (целые числа больше 0).');
             return;
@@ -93,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             const response = await fetch(`${BACKEND_URL}/api/tables`, { // Эндпоинт для создания таблицы
+                
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
