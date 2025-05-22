@@ -49,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     openExistingButton.addEventListener('click', async () => {
-        button onclick="getMicrophone()"
         voiceStatus.textContent = 'Загрузка списка файлов...';
         try {
             const response = await fetch(`${BACKEND_URL}/api/files`); // Предполагаем, что есть такой эндпоинт
