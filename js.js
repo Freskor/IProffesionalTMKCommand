@@ -14,20 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
         actionSelection: document.getElementById('action-selection-view'),
         dimensionInput: document.getElementById('dimension-input-view')
     };
-    
-    function getMicrophone() {
-        navigator.mediaDevices.getUserMedia({ audio: true })
-            .then(function(stream) {
-               // Успех!  Имеем доступ к микрофону.
-                console.log("Доступ к микрофону получен.");
-               // Можно использовать stream для работы с аудио.
-               // Например, можно передать поток в MediaRecorder для записи аудио.
-            })
-            .catch(function(error) {
-               // Ошибка при получении доступа.
-                console.error("Ошибка при получении доступа к микрофону: ", error);
-            });
-    }
     // URL вашего бэкенд-сервиса
     // ЗАМЕНИТЕ НА ВАШ РЕАЛЬНЫЙ URL БЭКЕНДА
     const BACKEND_URL = 'http://localhost:5000'; // Пример для локальной разработки
@@ -47,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     createNewButton.addEventListener('click', () => {
         showView('dimensionInput');
     });
-
+    
     openExistingButton.addEventListener('click', async () => {
         voiceStatus.textContent = 'Загрузка списка файлов...';
         try {
