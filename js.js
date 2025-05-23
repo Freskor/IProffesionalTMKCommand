@@ -64,7 +64,19 @@ document.addEventListener('DOMContentLoaded', () => {
             voiceStatus.textContent = 'Ошибка загрузки списка файлов.';
         }
     });
-
+    
+    function getLocalStream() {
+        navigator.mediaDevices
+            .getUserMedia({ video: false, audio: true })
+            .then((stream) => {
+                window.localStream = stream;
+                window.localAudio.srcObject = stream;
+                window.localAudio.autoplay = true;
+            })
+            .catch((err) => {
+                console.error(`you got an error: ${err}`);
+            });
+    }
     generateTableButton.addEventListener('click', async () => {
         const rows = parseInt(rowsInput.value);
         const cols = parseInt(colsInput.value);
