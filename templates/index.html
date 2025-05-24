@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Creator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='placeholder-logo.png') }}" alt="Логотип Компании" id="logo">
+        <h3 id="company-name">Трудолюбивые <br /> Молодые <br /> Крутые</h3>
+        <div class="center-logos">
+            <img src="{{ url_for('static', filename='urfu.png') }}" alt="Логотип Компании" id="logo1">
+            <img src="{{ url_for('static', filename='uunit.png') }}" alt="Логотип Компании" id="logo2">
+            <img src="{{ url_for('static', filename='ranh.png') }}" alt="Логотип Компании" id="logo3">
+            <img src="{{ url_for('static', filename='mifi.png') }}" alt="Логотип Компании" id="logo4">
+            <img src="{{ url_for('static', filename='penz.png') }}" alt="Логотип Компании" id="logo5">
+        </div>
+    </header>
+
+    <main>
+        <div id="initial-view" class="view active">
+            <button id="start-button">▶</button>
+        </div>
+
+        <div id="action-selection-view" class="view">
+            <div class="action-buttons-container">
+                <button id="create-new-button" class="action-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <polygon fill="var(--ci-primary-color, currentColor)" points="440 240 272 240 272 72 240 72 240 240 72 240 72 272 240 272 240 440 272 440 272 272 440 272 440 240" class="ci-primary" />
+                    </svg>
+               </button>     
+                <button id="open-existing-button" class="action-button">
+                    <svg width="96" height="96" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 20L18 20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M12 16V4M12 4L15.5 7.5M12 4L8.5 7.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+
+                </button>     
+            </div>
+            <div id="file-list-container" style="margin-top:20px;"></div>    
+        </div>
+
+        <div id="status-view" class="view">
+            <p id="creation-status"></p>
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

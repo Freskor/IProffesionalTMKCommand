@@ -1,0 +1,7 @@
+Flask
+openpyxl
+Flask-APScheduler # For autosave
+python-dotenv # Optional, for managing environment variables like BACKEND_URL
+# If you later decide on backend Vosk STT:
+vosk
+websockets

@@ -1,0 +1,122 @@
+body.table-page {
+    background-color: #f8f9fa;        
+    display: flex;    
+    flex-direction: column;    
+    min-height: 100vh;    
+    margin: 0;     
+}
+.center-logos {
+    display: flex;       
+    justify-content: center;       
+    align-items: center;
+    gap: 100px;     
+    flex-grow: 1;          
+    overflow: hidden;        
+}
+
+    .center-logos img {         
+        height: 80px;         
+        border-radius: 8px;
+    }
+
+main .table-editor-layout {       
+    display: flex;
+    flex-direction: column;
+    width: 95%;     
+    max-width: 1600px;      
+    margin: 10px auto;
+    flex-grow: 1;      
+}
+
+
+.table-container {
+    overflow: hidden;        
+    background-color: #fff;
+    padding: 0;         
+    border-radius: 0;       
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    flex-grow: 1;     
+    display: flex;     
+}
+
+#hot-instance-div {
+    width: 100% !important;     
+    height: 100% !important;       
+    overflow: hidden;      
+}
+
+#formula-bar-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+#selected-cell-indicator {
+    padding: 7px 10px;
+    background-color: #f0f0f0;    
+    border-right: 1px solid #ccc;
+    font-family: Arial, sans-serif;
+    font-size: 0.9em;
+    color: #333;
+    min-width: 60px; 
+    text-align: center;
+    flex-shrink: 0;    
+}
+
+#formula-input {
+    flex-grow: 1;
+    padding: 7px 10px;
+    border: none;      
+    font-family: 'Consolas', 'Menlo', monospace;     
+    font-size: 0.9em;
+    outline: none;       
+    background-color: transparent;    
+}
+
+
+.controls-area {
+    margin-bottom: 10px;    
+    padding: 10px;
+    background-color: #f8f9fa;      
+    border-radius: 5px;
+    display: flex;
+    gap: 10px;    
+    align-items: center;
+    flex-wrap: wrap;
+    border: 1px solid #e0e0e0;
+}
+
+    .controls-area button {
+        padding: 8px 15px;     
+        font-size: 14px;     
+        background-color: white;     
+    }
+
+#voice-status-editor {
+    font-size: 0.85em;   
+    background-color: #fff;
+    padding: 6px 10px;
+    border: 1px solid #ddd;
+    flex-grow: 1;     
+}
+#save-table-button.dirty {
+    border: 2px solid orange;
+}
+#voice-command-button.active {
+    background-color: #4CAF50;   
+    color: white;
+}
+
+.command-reference {
+    margin-top: 15px;
+    padding: 12px;
+    background-color: #fdfdfe;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    font-size: 0.8em;   
+}
+

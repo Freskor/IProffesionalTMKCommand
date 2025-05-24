@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактор Таблицы: {{ filename }}</title>
+
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/luckysheet@2.1.13/dist/plugins/css/pluginsCss.css' />
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/luckysheet@2.1.13/dist/plugins/plugins.css' />
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/luckysheet@2.1.13/dist/css/luckysheet.css' />
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/luckysheet@2.1.13/dist/assets/iconfont/iconfont.css' />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/table_style.css') }}"> 
+
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;      
+            font-family: sans-serif;          
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;         
+        }
+
+        header {
+            flex-shrink: 0;     
+        }
+
+        main {
+            flex-grow: 1;         
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;        
+        }
+
+        .controls-area {
+            padding: 10px;
+            background-color: #f0f0f0;       
+            border-bottom: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;    
+            flex-shrink: 0;     
+        }
+
+        #manual-command-input {
+            flex-grow: 1;
+            padding: 6px 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        
+        #voice-status-editor {
+            flex-basis: 200px;      
+            flex-grow: 1;
+            padding: 6px 8px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 0.9em;
+            margin: 0 5px;    
+        }
+        
+        .controls-area button {
+            padding: 6px 12px;
+            border-radius: 3px;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+
+        #luckysheet {
+            width: 100%;
+            height: 100%;          
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <img src="{{ url_for('static', filename='placeholder-logo.png') }}" alt="Логотип Компании" id="logo">
+    <h3 id="company-name">Трудолюбивые <br /> Молодые <br /> Крутые</h3>
+    <div class="center-logos">
+        <img src="{{ url_for('static', filename='urfu.png') }}" alt="Логотип Компании" id="logo1">
+        <img src="{{ url_for('static', filename='uunit.png') }}" alt="Логотип Компании" id="logo2">
+        <img src="{{ url_for('static', filename='ranh.png') }}" alt="Логотип Компании" id="logo3">
+        <img src="{{ url_for('static', filename='mifi.png') }}" alt="Логотип Компании" id="logo4">
+        <img src="{{ url_for('static', filename='penz.png') }}" alt="Логотип Компании" id="logo5">
+    </div>
+</header>
+
+    <main>
+        <div class="controls-area">
+            <button id="voice-command-button" title="Голосовая команда">🎤 Голосовая команда</button>
+            <input type="text" id="manual-command-input" placeholder="Или введите команду здесь..." aria-label="Поле для ввода команды вручную">
+            <button id="execute-manual-command-button">Выполнить</button>
+            <p id="voice-status-editor">Готов к командам...</p>
+            <button id="save-table-button" style="background-color: #007bff; color:white;" title="Сохранить таблицу">💾 Сохранить</button>
+            <span style="margin-left: auto; font-size: 0.9em; color: #555;">
+                Файл: <strong>{{ filename }}</strong> 
+                (<a href="{{ url_for('download_file', filename=filename) }}" download title="Скачать файл">Скачать</a>)
+            </span>
+        </div>
+
+        <div id="luckysheet"></div>
+        
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/luckysheet@2.1.13/dist/plugins/js/plugin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luckysheet@2.1.13/dist/luckysheet.umd.js"></script>
+    
+    <script>
+        const currentTableFilename = "{{ filename }}";
+    </script>
+    <script src="{{ url_for('static', filename='js/table_editor_luckysheet.js') }}"></script> 
+</body>
+</html>
